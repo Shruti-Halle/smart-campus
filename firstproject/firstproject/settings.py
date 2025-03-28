@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-z5ey4#hr&p52e6pw*5k1-f)v&ft)-9_m^rh#%czbqkdjfty43o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['home.onrender.com', '127.0.0.1']
+ALLOWED_HOSTS = ['sndt-smart-campus-navigation-system.onrender.com', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://sndt-smart-campus-navigation-system.onrender.com']
+
 
 
 
