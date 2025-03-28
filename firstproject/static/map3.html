@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Navigation Assistant</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        .controls {
+            margin: 10px;
+        }
+        .controls button, .controls select {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Smart Navigation Assistant</h2>
+    <div class="controls">
+        <label for="language">Select Language:</label>
+        <select id="language" onchange="setLanguage()">
+            <option value="en-US">English</option>
+            <option value="hi-IN">Hindi</option>
+            <option value="mr-IN">Marathi</option>
+        </select>
+        <button onclick="toggleMapView()">Toggle Map View</button>
+    </div>
+    <div id="map"></div>
+    <p id="time-estimate"></p>
+
+    <script>
+        let currentLang = "en-US"; // Default language
+        let isSatelliteView = false; // Default map view
+        const map = L.map('map').setView([18.5204, 73.8567], 14); // Default location
+
+        const defaultLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; OpenStreetMap contributors'
+        });
+        const satelliteLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+            maxZoom: 17,
+            attribution: '&copy; OpenTopoMap contributors'
+        });
+        defaultLayer.addTo(map);
+
+        // Language-specific messages for navigation
+        const directionMessages = {
+            "en-US": {
+                start: "Navigation started. You are heading towards SNDT College.",
+                turnLeft: "Turn left.",
+                turnRight: "Turn right.",
+                straight: "Go straight.",
+                timeEstimate: (time) => `Estimated walking time is ${time} minutes.`
+            },
+            "hi-IN": {
+                start: "नेविगेशन शुरू हो गया है। आप एसएनडीटी कॉलेज की ओर बढ़ रहे हैं।",
+                turnLeft: "बाएँ मुड़ें।",
+                turnRight: "दाएँ मुड़ें।",
+                straight: "सामने जाएं।",
+                timeEstimate: (time) => `अनुमानित चलने का समय ${time} मिनट है।`
+            },
+            "mr-IN": {
+                start: "नेव्हिगेशन सुरू झाले आहे. आपण एसएनडीटी कॉलेजकडे जात आहात.",
+                turnLeft: "डावीकडे वळा.",
+                turnRight: "उजवीकडे वळा.",
+                straight: "सरळ जा.",
+                timeEstimate: (time) => `अनुमानित चालण्याचा वेळ ${time} मिनिटे आहे.`
+            }
+        };
+
+        function setLanguage() {
+            const languageDropdown = document.getElementById("language");
+            currentLang = languageDropdown.value;
+            speakMessage(directionMessages[currentLang].start);
+        }
+
+        function toggleMapView() {
+            if (isSatelliteView) {
+                map.removeLayer(satelliteLayer);
+                map.addLayer(defaultLayer);
+                isSatelliteView = false;
+            } else {
+                map.removeLayer(defaultLayer);
+                map.addLayer(satelliteLayer);
+                isSatelliteView = true;
+            }
+        }
+
+        function speakMessage(message) {
+            const speech = new SpeechSynthesisUtterance(message);
+            speech.lang = currentLang;
+            speech.rate = 1; // Normal speaking rate
+            window.speechSynthesis.speak(speech);
+        }
+
+        const destination = [18.509573,73.827904]; // Bed College
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                const startLocation = [position.coords.latitude, position.coords.longitude];
+
+                L.marker(startLocation).addTo(map).bindPopup("Your Current Location").openPopup();
+                L.marker(destination).addTo(map).bindPopup("SNDT College").openPopup();
+
+                const routeControl = L.Routing.control({
+                    waypoints: [
+                        L.latLng(startLocation),
+                        L.latLng(destination)
+                    ],
+                    routeWhileDragging: false
+                })
+                .on('routesfound', function(e) {
+                    const route = e.routes[0];
+                    const distanceInMeters = route.summary.totalDistance;
+                    const walkingSpeed = 1.39; // meters per second (~5 km/h)
+                    const estimatedTime = Math.round(distanceInMeters / walkingSpeed / 60); // in minutes
+
+                    document.getElementById("time-estimate").innerText = `Estimated walking time: ${estimatedTime} minutes`;
+                    speakMessage(directionMessages[currentLang].timeEstimate(estimatedTime));
+
+                    // Announce each step in the route
+                    route.instructions.forEach((step, index) => {
+                        setTimeout(() => {
+                            if (step.type === "Straight") {
+                                speakMessage(directionMessages[currentLang].straight);
+                            } else if (step.type === "Left") {
+                                speakMessage(directionMessages[currentLang].turnLeft);
+                            } else if (step.type === "Right") {
+                                speakMessage(directionMessages[currentLang].turnRight);
+                            }
+                        }, index * 5000); // 5-second interval between steps
+                    });
+                })
+                .addTo(map);
+            });
+        } else {
+            alert("Unable to detect your location.");
+        }
+    </script>
+</body>
+</html>

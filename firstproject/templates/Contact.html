@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Registration Page{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    {% block body %}
+    <section class="Register-Form">
+        <h4 class="sectionHeader">Register here</h4>
+        <h1 class="heading">Smart Campus Navigation System</h1>
+        <p class="para">Smart Campus Navigation for SNDT Women’s University helps students,parents and visitors explore
+            the campus easily by showing directions, important places, and providing quick help when needed (like
+            finding buildings or facilities).</p>
+
+        <div class="RegisterForm">
+            <form id="registrationForm" method="POST" action="/homepage">
+                {% csrf_token %}
+                <h1 class="sub-heading">Register Here!</h1>
+                <p class="para para2">
+                    Fill in your details to register and get started with our Smart Campus Navigation system.
+                </p>
+                <!-- Name Input -->
+                <label for="name">Name:</label>
+                <input type="text" class="input" id="Name" name="name" placeholder="Enter Your Name">
+                <div id="errorName" style="color: red;"></div> <!-- Error message container -->
+
+                <!-- Contact Number Input -->
+                <label for="contactNumber">Contact Number:</label>
+                <input type="text" class="input" id="contactNumber" name="contactNumber" placeholder="Enter Your Contact Number">
+                <div id="errorContactNumber" style="color: red;"></div> <!-- Error message container -->
+
+                <!-- Email Input -->
+                <label for="emailId">Email Id:</label>
+                <input type="text" class="input" id="emailId" name="emailId" placeholder="Enter Your Email Id">
+                <div id="errorEmailId" style="color: red;"></div> <!-- Error message container -->
+
+                <!-- Address Input -->
+                <label for="address">Address:</label>
+                <textarea class="input" id="address" cols="30" rows="5" name="address" placeholder="Enter Your Address"></textarea>
+                <div id="errorAddress" style="color: red;"></div> <!-- Error message container -->
+                
+                <input type="submit" class="input submit" value="Register">
+            </form>
+
+            <div class="map-container">
+                <div class="mapBg"></div>
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.474627951412!2d73.8252650742714!3d18.507441882583482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf922c096397%3A0x419ea98bb95c7943!2sSNDT%20Women%20University!5e0!3m2!1sen!2sin!4v1737374452470!5m2!1sen!2sin"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="contactMethod">
+            <div class="method">
+                <span class="material-symbols-outlined">
+                    distance
+                </span>
+                <article class="text">
+                    <h1 class="sub-heading">Location</h1>
+                    <p class="para">SNDT College For Women KarveNagar Kothrud,Erandwane,Pune,Maharashtra 411004</p>
+                </article>
+            </div>
+
+            <div class="method">
+                <span class="material-symbols-outlined contactIcon">
+                    mail
+                </span>
+                <article class="text">
+                    <h1 class="sub-heading">Email</h1>
+                    <p class="para">sndtbcadepartment@gmail.com</p>
+                </article>
+            </div>
+
+            <div class="method">
+                <span class="material-symbols-outlined contactIcon">
+                    call
+                </span>
+                <article class="text">
+                    <h1 class="sub-heading">Contact</h1>
+                    <p class="para">123456789</p>
+                </article>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'script.js' %}"></script>
+    {% endblock %}
+</body>
+
+</html>

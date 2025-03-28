@@ -1,0 +1,918 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} Smart Campus Navigation System {% endblock title %}</title>
+    <!-- font awesome cdn link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="{% static 'style1.css' %}" />
+
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+
+    <!-- custom js file link -->
+    <script src="{% static 'script1.js' %}" defer></script>
+    <script src="{% static 'language.js' %}" defer></script>
+
+  </head>
+
+  <body>
+    {% block content %}
+    <!-- header section starts -->
+    <header class="header">
+      <div id="menu-btn" class="fas fa-bars"></div>
+      <a data-aos="zoom-in-left" data-aos-delay="150" href="#" class="logo"
+        ><i class="fas fa-paper-plane"></i>Navigation</a
+      >
+
+      <nav class="navbar">
+        <a id="nav-home" data-aos="zoom-in-left" data-aos-delay="300" href="#home">home</a>
+        <a id="nav-about" data-aos="zoom-in-left" data-aos-delay="450" href="#about">about</a>
+        <a id="nav-destination" data-aos="zoom-in-left" data-aos-delay="600" href="#destination">destination</a>
+        <a id="nav-services" data-aos="zoom-in-left" data-aos-delay="750" href="#services"
+          >services</a
+        >
+        <a id="nav-gallery" data-aos="zoom-in-left" data-aos-delay="900" href="#gallery"
+          >gallery</a
+        >
+        <a id="nav-team" data-aos="zoom-in-left" data-aos-delay="1150" href="#blogs">Our Team</a>
+      </nav>
+    
+
+      <div class="language-container" data-aos="fade-up" data-aos-delay="600">
+        <label for="language">Select Language:</label>
+        <select id="language" onchange="translateText()">
+          <option value="en">English</option>
+          <option value="mr">Marathi</option>
+          <option value="hi">Hindi</option>
+        </select>
+      </div>
+    </header>
+    <!-- header section ends-->
+
+    <!-- home section starts -->
+    <section class="home" id="home">
+      <div class="content"><video src="{% static 'images/Video11.mp4' %}" muted autoplay loop class="video"></video>
+        <span id="heading" data-aos="fade-up" data-aos-delay="150"
+          >
+          SMART CAMPUS NAVIGATION</span
+        >
+        <h3 id="subheading" data-aos="fade-up" data-aos-delay="300">SNDT college</h3>
+        <p id="description" data-aos="fade-up" data-aos-delay="450">
+          Smart Campus Navigation is a modern solution designed to help students and visitors easily find locations within the campus. It simplifies navigation, saves time, and enhances the overall campus experience.
+
+
+        </p>
+      </div>
+      </div>
+    </section>
+
+    <!-- home section ends -->
+
+    <!-- about section starts -->
+    <section class="about" id="about">
+      <div class="video-container" data-aos="fade-right" data-aos-delay="300">
+        <video src="{% static 'images/TYBCA.mp4' %}" muted autoplay loop class="video"></video>
+        <div class="controls">
+          <span class="control-btn" data-src="{% static 'images/TYBCA.mp4' %}"></span>
+          <span class="control-btn" data-src="{% static 'images/my DOst.mp4' %}"></span>
+          <span class="control-btn" data-src="{% static 'images/TEAM.mp4' %}"></span>
+        </div>
+      </div>
+
+      <div class="content" data-aos="fade-left" data-aos-delay="600">
+        
+        <span id="heading1">Why Choose SNDT Women's University, Pune?</span>
+<h3 id="subheading1">Empowering Women Through Excellence in Education</h3>
+<p id="description1">
+  SNDT Women's University, Pune, is India's first women's university, dedicated to empowering women through quality education, innovation, and leadership. With a legacy of academic excellence, a vibrant campus, and a commitment to holistic development, we prepare students to excel in their careers and make a meaningful impact on society.  
+</p>
+
+        <a href="https://sndtarts.ac.in/" class="btn" id="readBtn">read</a>
+      </div>
+    </section>
+    <!-- about section ends -->
+
+    <!-- destination section starts -->
+    <section class="destination" id="destination">
+      <div class="heading">
+        <span id="destinationHeading">Our destination</span>
+        <h1 id="destinationSubheading">Make your destination</h1>
+      </div>
+
+      <!-- Home Science -->
+      <div class="box-container">
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+          <div class="image">
+            <img src="{% static 'images/HomeScience.jpg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="homeScienceTitle">home science</h3>
+            <p id="homeScienceDescription">SNDT College of Home Science</p>
+            <a href="{% static 'map1.html' %}"><span id="clickHereText">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+        <!-- SNDT College of Education -->
+        <div class="box" data-aos="fade-up" data-aos-delay="300">
+          <div class="image">
+            <img src="{% static 'images/SNDT College of Education.jpg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="eduTitle">SNDT College of Education</h3>
+            <p id="eduDescription">SNDT College of Education,Pune<br />B.Ed | M.Ed | Ph.D</p>
+            <a href="{% static 'map2.html' %}"><span id="clickHereText1">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Tarapore Hall -->
+
+        <div class="box" data-aos="fade-up" data-aos-delay="450">
+          <div class="image">
+            <img src="{% static 'images/TARAPORE HALL.jpg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="hallTitle">Tarapore Hall</h3>
+            <p id="hallDescription">All functions, programs, and dances are conducted here.</p>
+            <a href="{% static 'map3.html' %}"><span id="clickHereText2">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+         
+        <!-- MBA/MCA -->
+        <div class="box" data-aos="fade-up" data-aos-delay="600">
+          <div class="image">
+            <img src="{% static 'images/mba.jpeg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="mbaTitle">MBA/MCA</h3>
+            <p id="mbaDescription">Janakidevi Bajaj Institutes of Management Studies & Research</p>
+            <a href="{% static 'map4.html' %}"><span id="clickHereText3">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+         <!-- Office -->
+        <div class="box" data-aos="fade-up" data-aos-delay="750">
+          <div class="image">
+            <img src="{% static 'images/Office.jpeg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="officeTitle">Office</h3>
+            <p id="officeDescription">College Office</p>
+            <a href="{% static 'map5.html' %}"><span id="clickHereText4">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+     <!-- BCA -->
+        <div class="box" data-aos="fade-up" data-aos-delay="900">
+          <div class="image">
+            <img src="{% static 'images/BCA.jpeg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="bcaTitle">BCA</h3>
+            <p id="bcaDescription">Bachelors of Computer Applications</p>
+            <a href="{% static 'map6.html' %}"><span id="clickHereText5">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+        
+         <!-- Staff Room-->
+        <div class="box" data-aos="fade-up" data-aos-delay="1150">
+          <div class="image">
+            <img src="{% static 'images/staff.jpg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="staffTitle">Staff Room</h3>
+            <p id="staffDescription">College Staff Room</p>
+            <a href="{% static 'map7.html' %}"> <span id="clickHereText6">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+
+         <!-- Principal Office-->
+        <div class="box" data-aos="fade-up" data-aos-delay="1300">
+          <div class="image">
+            <img src="{% static 'images/Principal.jpeg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="principalTitle">Principal Office</h3>
+            <p id="principalDescription">SNDT College Principal Office</p>
+            <a href="{% static 'map8.html' %}"> <span id="clickHereText7">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+ <!-- SNDT Library-->
+        <div class="box" data-aos="fade-up" data-aos-delay="1800">
+          <div class="image">
+            <img src="{% static 'images/Library.jpg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="libraryTitle">SNDT Library</h3>
+            <p id="libraryDescription">Bharatratna Maharshi karve knowledge resource centre</p>
+            <a href="{% static 'map9.html' %}"><span id="clickHereText8">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+            <!-- Room No 9-->
+        <div class="box" data-aos="fade-up" data-aos-delay="2000">
+          <div class="image">
+            <img src="{% static 'images/Room No 9.jpg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="room9Title">Room No 9</h3>
+            <p id="room9Description">Seminar Hall</p>
+            <a href="{% static 'map10.html' %}"> <span id="clickHereText9">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+       
+         <!--Post Graduate-->
+        <div class="box" data-aos="fade-up" data-aos-delay="2500">
+          <div class="image">
+            <img src="{% static 'images/Post Graduate.jpg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="postGraduateTitle">Post Graduate Building</h3>
+            <p id="postGraduateDescription">Post Graduate Department Complex,Pune Campus</p>
+            <a href="{% static 'map11.html' %}"> <span id="clickHereText10">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+             
+         <!-- SNDT Main Building-->
+        <div class="box" data-aos="fade-up" data-aos-delay="3000">
+          <div class="image">
+            <img src="{% static 'images/Main Building.jpg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="mainBuildingTitle">SNDT Main Building</h3>
+            <p  id="mainBuildingDescription">SNDT Womens University,Pune</p>
+            <a href="{% static 'map12.html' %}"><span id="clickHereText11">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+       
+         <!-- Parking and Sitting Area-->
+        <div class="box" data-aos="fade-up" data-aos-delay="2500">
+          <div class="image">
+            <img src="{% static 'images/Area.jpeg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="parkingTitle">Parking and Sitting Area</h3>
+            <p id="parkingDescription">College Sitting Area and Parking</p>
+            <a href="{% static 'map13.html' %}"><span id="clickHereTextParking">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+
+        <div class="box" data-aos="fade-up" data-aos-delay="2500">
+          <div class="image">
+            <img src="{% static 'images/Villo HOSTEL.jpg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="villoTitle">Villo Poonawala Girls Hostel</h3>
+            <p id="villoDescription">Villo Poonawala New Girls Hostel,Pune</p>
+            <a href="{% static 'map14.html' %}"><span id="clickHereTextVillo">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+
+        <div class="box" data-aos="fade-up" data-aos-delay="2500">
+          <div class="image">
+            <img src="{% static 'images/Student_Home.jpg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="gymTitle">Student Home(Gym)</h3>
+            <p id="gymDescription">Student Home (GYM),Pune</p>
+            <a href="{% static 'map15.html' %}"><span id="clickHereTextGym">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+
+        <div class="box" data-aos="fade-up" data-aos-delay="2500">
+          <div class="image">
+            <img src="{% static 'images/Chetna.jpg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="chetnaTitle">SNDT Women's University Chetna</h3>
+            <p id="chetnaDescription">Center for Holistic Education ,Training & Novel Advancements</p>
+            <a href="{% static 'map16.html' %}"> <span id="clickHereTextChetna">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="2500">
+          <div class="image">
+            <img src="{% static 'images/Backgate.jpg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="backgateTitle">SNDT Women's University backgate</h3>
+            <p id="backgateDescription">Backgate of SNDT Women's University ,Pune</p>
+            <a href="{% static 'map17.html' %}"> <span id="clickHereTextBackgate">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+
+        <div class="box" data-aos="fade-up" data-aos-delay="2500">
+          <div class="image">
+            <img src="{% static 'images/NCC.jpg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="nccTitle">NCC Ground</h3>
+            <p id="nccDescription">Ground of SNDT Women's University,Pune</p>
+            <a href="{% static 'map18.html' %}"> <span id="clickHereTextNCC">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+
+        
+        <div class="box" data-aos="fade-up" data-aos-delay="2500">
+          <div class="image">
+            <img src="{% static 'images/Old hostel.jpg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="hostelTitle">Old Girls Hostel,SNDT</h3>
+            <p id="hostelDescription">Old Girls Hostel,Pune</p>
+            <a href="{% static 'map19.html' %}"><span id="clickHereTextHostel">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+
+        <div class="box" data-aos="fade-up" data-aos-delay="2500">
+          <div class="image">
+            <img src="{% static 'images/Ladies Room.jpeg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="ladiesRoomTitle">Ladies Room,SNDT</h3>
+            <p id="ladiesRoomDescription">Ladies Room</p>
+            <a href="{% static 'map20.html' %}"><span id="clickHereTextLadies">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+        
+        <div class="box" data-aos="fade-up" data-aos-delay="2500">
+          <div class="image">
+            <img src="{% static 'images/Geography.jpeg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="geographyTitle">Geography Department</h3>
+            <p id="geographyDescription">Geography Department,SNDT</p>
+            <a href="{% static 'map21.html' %}"><span id="clickHereTextGeography">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+     
+        <div class="box" data-aos="fade-up" data-aos-delay="2500">
+          <div class="image">
+            <img src="{% static 'images/BCOM.jpeg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="bcomTitle">BCom </h3>
+            <p id="bcomDescription">Bcom Department,SNDT</p>
+            <a href="{% static 'map22.html' %}"> <span id="clickHereTextBcom">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="2500">
+          <div class="image">
+            <img src="{% static 'images/BAF.png' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="bafTitle">BAF</h3>
+            <p id="bafDescription">BAF Department,SNDT</p>
+            <a href="{% static 'map23.html' %}"><span id="clickHereTextBaf">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+
+        <div class="box" data-aos="fade-up" data-aos-delay="2500">
+          <div class="image">
+            <img src="{% static 'images/Music Department.jpg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="musicTitle">Music Department</h3>
+            <p id="musicDescription">Music Department,SNDT</p>
+            <a href="{% static 'map24.html' %}"><span id="clickHereTextMusic">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+        
+
+        <div class="box" data-aos="fade-up" data-aos-delay="2500">
+          <div class="image">
+            <img src="{% static 'images/Psychology.jpeg' %}" alt="" />
+          </div>
+          <div class="content">
+            <h3 id="psychologyTitle">Psychology Department</h3>
+            <p id="psychologyDescription">Psychology Department,SNDT</p>
+            <a href="{% static 'map25.html' %}"><span id="clickHereTextPsychology">Click here</span><i class="fas fa-angle-right"></i></a>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- destination section ends -->
+
+    <!-- services section starts -->
+    <services class="services" id="services">
+      <div class="heading">
+        <span id="ourServicesText">Our services</span>
+        <h1 id="countlessExperiencesText">countless experiences</h1>
+      </div>
+
+      <div class="box-container">
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+          <i class="fa-solid fa-globe"></i>
+          <h3 id="servicesTitle">Interactive Campus Map</h3>
+          <p id="servicesDescription">
+            Shows real-time directions within the campus.
+          </p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+          <i class="fa-brands fa-space-awesome"></i>
+          <h3>Adventures</h3>
+          <p>
+            Experience campus life through cultural events, workshops, clubs, and activities at SNDT Women's University.
+          </p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+          <i class="fa-solid fa-cookie-bite"></i>
+          <h3>foods and drinks</h3>
+          <p>
+            Enjoy a variety of delicious meals and refreshing beverages at the campus canteen and nearby eateries. 
+          </p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="600">
+          <i class="fa-solid fa-hotel"></i>
+          <h3>affordable hostels</h3>
+          <p>
+            Comfortable and budget-friendly hostel accommodations providing a safe and convenient stay for students near the campus. 
+          </p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="750">
+          <i class="fa-solid fa-money-bill"></i>
+          <h3>affordable price</h3>
+          <p>
+            Experience quality education and campus facilities at budget-friendly prices, ensuring value for every student. 
+          </p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="900">
+          <i class="fa-solid fa-clock"></i>
+          <h3>24/7 support</h3>
+          <p>
+            Dedicated assistance available round the clock to ensure a seamless and supportive campus experience for all students. 
+          </p>
+        </div>
+      </div>
+    </services>
+
+    <!-- services section ends -->
+
+    <!-- gallery section starts -->
+    <section class="gallery" id="gallery">
+      <div class="heading">
+        <span>Our gallery</span>
+        <h1>We record memories</h1>
+      </div>
+
+      <div class="box-container">
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+          <img src="{% static 'images/Gallery/Hinjawadi.jpeg' %}" alt="" />
+          <span>Hinjawadi,Pune</span>
+          <h3>Visited Yash Technologies</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+          <img src="{% static 'images/Gallery/St mira.jpeg' %}" alt="" />
+          <span>Our Girls participated in bugbundy.</span>
+          <h3>St.Mira College (bugbundy event)</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+          <img src="{% static 'images/Gallery/Industrial visit.jpeg' %}" alt="" />
+          <span>Industrial Visit</span>
+          <h3>Industrial Visit at Tata Powers,Bhira</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+          <img src="{% static 'images/Gallery/Trip.jpeg' %}" alt="" />
+          <span>TYBCA Trip</span>
+          <h3>Memorable day</h3>
+        </div>
+
+        
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+          <img src="{% static 'images/Gallery/pic7.jpeg' %}" alt="" />
+          <span>Innovative minds</span>
+          <h3>Visionary thinkers</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="350">
+          <img src="{% static 'images/Gallery/Diwali.jpeg' %}" alt="" />
+          <span>Happy Diwali</span>
+          <h3>TYBCA Diwali Celebration</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+          <img src="{% static 'images/Gallery/Music.jpeg' %}" alt="" />
+          <span>Music Department</span>
+          <h3>SNDT Music Department</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+          <img src="{% static 'images/Gallery/Sakshi.jpeg' %}" alt="" />
+          <span>Bronze Medal in Nationals</span>
+          <h3>Sakshi Patil Student of TYBCA</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+          <img src="{% static 'images/Gallery/my team.jpeg' %}" alt="" />
+          <span>The Mains</span>
+          <h3>Our team</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+          <img src="{% static 'images/Gallery/Girls Doing coding.jpeg' %}" alt="" />
+          <span>Coding</span>
+          <h3>Project Management</h3>
+        </div>
+            
+
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+          <img src="{% static 'images/Gallery/pic3.jpeg' %}" alt="" />
+          <span>Gathering</span>
+          <h3>TYBCA Gathering Winner</h3>
+        </div>
+
+        
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+          <img src="{% static 'images/Gallery/karishma.jpeg' %}" alt="" />
+          <span>Karishma Patil student of TYBCA</span>
+          <h3>Winner of bugbundy in java</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+          <img src="{% static 'images/Gallery/pic1.jpeg' %}" alt="" />
+          <span>Sports</span>
+          <h3>Sports </h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+          <img src="{% static 'images/Gallery/pic4.jpeg' %}" alt="" />
+          <span>Innovative minds</span>
+          <h3>Invisible League</h3>
+        </div>
+        
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+          <img src="{% static 'images/Gallery/pic6.jpeg' %}" alt="" />
+          <span>Chamber of Secrets</span>
+          <h3>The Legends</h3>
+        </div>
+         
+
+          
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+          <img src="{% static 'images/Gallery/pic5.jpeg' %}" alt="" />
+          <span>Our Teachers</span>
+          <h3>Gurus</h3>
+        </div>
+
+        
+
+
+
+      </div>
+    </section>
+
+    <!-- gallery section ends -->
+
+    <!-- review section starts -->
+
+    <section class="review">
+      <div class="content" data-aos="fade-right" data-aos-delay="300">
+        <span>Testimonials</span>
+        <h3>Heartfelt Words from Our Teachers</h3>
+        <p>
+          They are not just teachers; they are mentors, guides, and our biggest
+          supporters. They shape our future with their wisdom and inspire us
+          with their dedication. Their lessons go beyond books, teaching us life
+          values and instilling confidence in us. We are forever grateful for
+          their patience, kindness, and unwavering belief in our potential.
+        </p>
+      </div>
+      <div class="box-container" data-aos="fade-left" data-aos-delay="600">
+        <div class="box">
+          <p>
+            "Impressive effort! This will be very helpful for students and
+            staff. 👍🎓"
+          </p>
+          <div class="user">
+            <img src="{% static 'images/mam1.jpeg' %}" alt="" />
+            <div class="info">
+              <h3>Roslin Baretto</h3>
+              <span>Teacher</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <p>
+            "Great work, team! The website is very well designed and easy to
+            use. 👏📍"
+          </p>
+          <div class="user">
+            <img
+              src="{% static 'images/WhatsApp Image 2025-02-08 at 8.53.36 PM.jpeg' %}"
+              alt=""
+            />
+            <div class="info">
+              <h3>Ashwini Deshmukh</h3>
+              <span>Teacher</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <p>
+            "Awesome job, team! The website looks fantastic and is super user-friendly. 🎉✨"
+          </p>
+          <div class="user">
+            <img
+              src="{% static 'images/anuja mam.jpeg' %}"
+              alt=""
+            />
+            <div class="info">
+              <h3>Anuja Kulkarni</h3>
+              <span>Teacher</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <p>
+            "Nicely done! The navigation is smooth and works perfectly. Keep it
+            up! ✅🚀"
+          </p>
+          <div class="user">
+            <img
+              src="{% static 'images/WhatsApp Image 2025-02-08 at 8.52.55 PM.jpeg' %}"
+              alt=""
+            />
+            <div class="info">
+              <h3>Kanchanmala Patil</h3>
+              <span>Teacher</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <p>
+            "Well-executed idea! This smart system adds great value to our
+            campus. 👏🏫".
+          </p>
+          <div class="user">
+            <img
+              src="{% static 'images/WhatsApp Image 2025-02-08 at 8.54.24 PM.jpeg' %}"
+              alt=""/>
+            <div class="info">
+              <h3>Tushar Pansare</h3>
+              <span>Mathematics Sir</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- review section ends -->
+
+    <!-- blogs section starts -->
+
+    <section class="blogs" id="blogs">
+      <div class="heading">
+        <span>Our Team</span>
+        <h1>The Untold Stories</h1>
+      </div>
+
+      <div class="box-container">
+        <!-- First Box -->
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+          <div class="image">
+            <img src="{% static 'images/blogs/Me.jpeg' %}" alt="" />
+          </div>
+          <div class="content">
+            <a href="https://www.linkedin.com/in/shruti-halle-767a3a274" class="link">Shruti Halle</a>
+            <p>
+              Our first team member—dynamic, skilled, and bringing fresh energy to the team!
+            </p>
+            <div class="icon">
+              <a href="#"><i class="fa-regular fa-clock"></i> 21st May, 2024</a>
+              <a href="#"><i class="fa-regular fa-clock"></i> By admin</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Box -->
+        <div class="box" data-aos="fade-up" data-aos-delay="300">
+          <div class="image">
+            <img src="{% static 'images/blogs/Sakshi.jpeg' %}" alt="" />
+          </div>
+          <div class="content">
+            <a href="https://www.instagram.com/patilsakshi_tkd/" class="link">Sakshi Patil</a>
+            <p>
+              Our second team member—creative, dedicated, and always ready to push boundaries!
+            </p>
+            <div class="icon">
+              <a href="#"><i class="fa-regular fa-clock"></i> 21st May, 2024</a>
+              <a href="#"><i class="fa-regular fa-clock"></i> By admin</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third Box -->
+        <div class="box" data-aos="fade-up" data-aos-delay="450">
+          <div class="image">
+            <img src="{% static 'images/blogs/Simi.jpeg' %}" alt="" />
+          </div>
+          <div class="content">
+            <a href="https://www.linkedin.com/in/simran-singh-858b622b5/" class="link">Simran Singh</a>
+            <p>
+              <p>Meet our third team member—innovative, passionate, and driven to make an impact!</p>
+
+            </p>
+            <div class="icon">
+              <a href="#"><i class="fa-regular fa-clock"></i> 21st May, 2024</a>
+              <a href="#"><i class="fa-regular fa-clock"></i> By admin</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- blogs section ends -->
+
+    <!-- banner section starts -->
+    <div class="banner">
+      <div class="content" data-aos="zoom-in-up" data-aos-delay="300">
+        <span>Start your journey</span>
+        <h3>Lets get started</h3>
+        <p>
+          Use our Smart Campus Navigation to effortlessly explore the campus and discover key locations with ease.
+        </p>
+
+      </div>
+    </div>
+    <!-- banner section ends -->
+
+    <!-- footer section starts -->
+
+    <section class="footer">
+      <div class="box-container">
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+          <a href="#" class="logo"
+            ><i class="fas fa-paper-plane"></i>Navigation</a
+          >
+          <p>
+            Aasan raha,Smart Safar!!
+          </p>
+          <div class="share">
+            <a
+              href="https://www.instagram.com/sndt_.bcaplacementpune?utm_source=ig_web_button_share_sheetigsh=ZDNlZDc0MzIxNw=="
+              class="fa-brands fa-instagram"
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/sndt-women-s-university-bca-department-placement-pune-3ab554335"
+              class="fa-brands fa-linkedin"
+            >
+            </a>
+          </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="300">
+          <h3>quick links</h3>
+          <a href="#home" class="links"
+            ><i class="fas fa-arrow-right"></i>home</a
+          >
+          <a href="#about" class="links"
+            ><i class="fas fa-arrow-right"></i>about</a
+          >
+          <a href="#destination" class="links"
+            ><i class="fas fa-arrow-right"></i>destination</a
+          >
+          <a href="#gallery" class="links"
+            ><i class="fas fa-arrow-right"></i>gallery</a
+          >
+          <a href="#blogs" class="links"
+            ><i class="fas fa-arrow-right"></i>Blogs</a
+          >
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="450">
+          <h3>contact info</h3>
+          <a
+            href="https://www.google.com/maps/place/SNDT+Women+University/@18.5074419,73.8252651,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc2bf922c096397:0x419ea98bb95c7943!8m2!3d18.5074419!4d73.82784!16s%2Fg%2F11cs5skbsl?entry=ttug_ep=EgoyMDI1MDIwNS4xIKXMDSoASAFQAw%3D%3D"
+          >
+            <p>
+              <i class="fa-solid fa-map"></i> SNDT Arts and Commerce College for
+              Women, Maharshi Karve Vidyavihar, Karve Road, Pune-411038
+            </p>
+          </a>
+          <p><i class="fa-solid fa-address-book"></i> 020-25431153</p>
+          <p>
+            <i class="fa-solid fa-address-book"></i>
+            <a
+              href="mailto:sndtartspune@gmail.com"
+              style="color: rgb(199, 188, 188); text-decoration: none"
+              >sndtartspune@gmail.com</a
+            >
+          </p>
+          <p>
+            <i class="fa-solid fa-address-book"></i> Timing:9:00 a.m to 3 p.m
+          </p>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="600">
+          <h3>Feedback</h3>
+
+          <div class="radio">
+            <input id="rating-5" type="radio" name="rating" value="5" />
+            <label for="rating-5" title="5 stars">
+              <svg viewBox="0 0 24 24" height="1em" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                ></path>
+              </svg>
+            </label>
+
+            <input type="radio" id="star1" name="rating" value="4">
+            <label for="star1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+            </label>
+          
+            <input type="radio" id="star1" name="rating" value="3">
+            <label for="star1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+            </label>
+        
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+            </label>
+
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+            </label>
+          </div>
+        
+          <button class="submit-btn" onclick="submitFeedback()">Submit</button>
+        
+          <div class="thank-you" id="thankYouMessage">
+            Thank you for your response!
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="credit">
+      Created by<span> Shruti Halle, Simran Singh and Sakshi Patil</span> |all
+      rights reserved!
+    </div>
+    {% endblock %}
+
+    <!-- footer section ends -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    
+    <script>
+
+      function submitFeedback() {
+        const thankYouMessage = document.getElementById('thankYouMessage');
+        thankYouMessage.style.display = 'block';
+      }
+
+      AOS.init({
+        duration: 800,
+        offset: 150,
+      });
+    </script>
+  </body>
+</html>
